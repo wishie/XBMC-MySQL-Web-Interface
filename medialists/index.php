@@ -164,6 +164,7 @@ while($row = mysql_fetch_row($result))
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td align="center" class="mainlist">
+			<?php if(!isset($_GET['all'])){ ?>
 			<form method="post" action="index.php">
 			PAGE:
 			<select name="startnum">
@@ -183,6 +184,7 @@ while($row = mysql_fetch_row($result))
 			</select>
 			<input type="submit" value="Go" name="submit">
 			</form>
+			<?php }; ?>
 		</td>
 	</tr>
 	<?php if(isset($_GET['search'])){ ?>
