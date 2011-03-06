@@ -185,7 +185,7 @@ while($row = mysql_fetch_row($result))
 	</tr>
 	<?php if(isset($_GET['search'])){ ?>
 	<tr>
-		<td><center><br><a class="nav" href="/medialists/">BACK TO MAIN PAGE</a></center></td>
+		<td><center><br><a class="nav" href="index.php">BACK TO MAIN PAGE</a></center></td>
 	</tr>
 	<?php ;}; ?>
 	<tr>
@@ -208,7 +208,7 @@ while($row = mysql_fetch_row($result))
 			?>
 			<center>
 			Stop playback: 
-			<a class="nav" href="?stop&location=lounge">Lounge</a> |
+			<a class="nav" href="?stop&location=lounge">Lounge</a>
 			<br>
 			<a class="nav" href="?action=logout">LOGOUT</a>
 			</center>

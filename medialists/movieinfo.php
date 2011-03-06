@@ -198,22 +198,16 @@ while($row = mysql_fetch_row($result))
 	<tr>
 		<td class="mainlist" align="center">
 <br>
-<center><a class="nav" href="/medialists/">BACK TO MOVIE LIST</a></center>
+<center><a class="nav" href="index.php">BACK TO MOVIE LIST</a></center>
 <?php
     if(isset($_GET['stop'])){
         $fh = fopen('/dev/null', 'w');
         $ch = curl_init();
         if(!isset($_GET['location'])){
-                $_GET['location'] = "trav";
-        };
-        if($_GET['location'] == "trav"){
-                curl_setopt($ch, CURLOPT_URL, "http://$xbmc_trav/xbmcCmds/xbmcHttp?command=ExecBuiltIn(PlayerControl(stop))");
+                $_GET['location'] = "lounge";
         };
         if($_GET['location'] == "lounge"){
                 curl_setopt($ch, CURLOPT_URL, "http://$xbmc_lounge/xbmcCmds/xbmcHttp?command=ExecBuiltIn(PlayerControl(stop))");
-        };
-        if($_GET['location'] == "chris"){
-                curl_setopt($ch, CURLOPT_URL, "http://$xbmc_chris/xbmcCmds/xbmcHttp?command=ExecBuiltIn(PlayerControl(stop))");
         };
         curl_setopt($ch, CURLOPT_FILE, $fh);
         curl_exec($ch);
@@ -223,9 +217,7 @@ while($row = mysql_fetch_row($result))
 ?>
 <center>
 Stop playback: 
-<a class="nav" href="movieinfo.php?movieid=<?php echo $movieid;?>&stop&location=trav">Trav</a> | 
-<a class="nav" href="movieinfo.php?movieid=<?php echo $movieid;?>&stop&location=lounge">Lounge</a> | 
-<a class="nav" href="movieinfo.php?movieid=<?php echo $movieid;?>&stop&location=chris">Chris</a><br>
+<a class="nav" href="movieinfo.php?movieid=<?php echo $movieid;?>&stop&location=lounge">Lounge</a><br>
 <a class="nav" href="?action=logout">LOGOUT</a>
 </center>
 		</td>
