@@ -70,6 +70,8 @@ while($row = mysql_fetch_row($result))
     $imdbid     = $row[11];
 
     $runtime    = $row[13];
+    $runtimeh	= floor(substr($runtime, 0, 3) / 60);
+    $runtimem	= $runtime - ($runtimeh * 60);
     $rated      = $row[14];
 
     $genre      = $row[16];
@@ -147,7 +149,7 @@ while($row = mysql_fetch_row($result))
 						<td colspan="2" class="desc">Classification: <?php echo $rated;?></td>
 					</tr>
 					<tr>
-						<td class="desc" width="300">Runtime: <?php echo substr($runtime, 0, 3);?> minutes</td>
+						<td class="desc" width="300">Runtime: <?php echo $runtimeh."hr ".$runtimem."mins";?></td>
 						<td class="desc" width="300">Rating: <?php echo substr($rating,0,3)."/10 (From ".$numvotes." votes)";?></td>
 					</tr>
 					<tr>

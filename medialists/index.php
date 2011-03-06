@@ -87,6 +87,9 @@ while($row = mysql_fetch_row($result))
     $imdbid	= $row[11];
 
     $runtime	= $row[13];
+    $runtimeh   = floor(substr($runtime, 0, 3) / 60);
+    $runtimem   = $runtime - ($runtimeh * 60);
+
     $rated	= $row[14];
 
     $genre	= $row[16];
@@ -136,7 +139,7 @@ while($row = mysql_fetch_row($result))
 					<table cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td width="300"><a class="nav" href="movieinfo.php?movieid=<?php echo $movieid;?>"><?php echo $title; if($year != "0") echo " (".$year.") ";?></a></td>
-							<td width="75" class="mainlist"><?php echo substr($runtime, 0, 3);?> minutes</td>
+							<td width="75" class="mainlist"><?php echo $runtimeh."hr ".$runtimem."mins";?></td>
 						</tr>
 						<tr height="70" valign="top">
 							<td colspan="2" class="mainlist"><?php echo $genre;?><br><br>
