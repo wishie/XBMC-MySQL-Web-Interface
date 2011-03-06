@@ -1,0 +1,21 @@
+.mainlist {
+    font-size:9px;
+    font-family:verdana;
+    color:#333;
+    margin:10px 0;
+}
+a.nav:link {font-size: 9px; color: black; text-decoration: none; }
+a.nav:visited {font-size: 9px; color: black; text-decoration: none; }
+a.nav:hover {color: red; text-decoration: underline; }
+a.nav:active {color: red; } 
+a.pages:link {font-size: 10px; color: black; text-decoration: none; }
+a.pages:visited {font-size: 10px; color: black; text-decoration: none; }
+a.pages:hover {color: red; text-decoration: underline; }
+a.pages:active {color: red; } 
+a.thispage:link {font-size: 10px; color: red; text-decoration: none; }
+a.thispage:visited {font-size: 10px; color: red; text-decoration: none; }
+a.thispage:hover {color: red; text-decoration: underline; }
+a.thispage:active {color: red; } 
+.title {font-family: Verdana; font-size: 20px; color: black;}
+.desc {font-family: Verdana; font-size: 11px; color: black;}
+a.desc:link {font-family: Verdana; font-size: 11px; color: black; text-decoration: underline; }
