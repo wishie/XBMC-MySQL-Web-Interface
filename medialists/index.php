@@ -38,14 +38,13 @@ function thumbnailHash($input) {
 mysql_pconnect($hostname, $db_user, $db_pass);
 mysql_select_db($database);
 
-//$totalmovies = mysql_query("SELECT COUNT( * ) FROM movie");
 $totalmovies = mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM movie"));
-if(!isset($_GET["startnum"])){ $_GET["startnum"] = "0" ;};
+if(!isset($_POST["startnum"])){ $_POST["startnum"] = "0" ;};
 if($_GET["startnum"] == ""){ $_GET["startnum"] = "0";};
 if($_GET["startnum"] > $totalmovies[0]){
 	$startnum = "0";
 }ELSE{
-	$startnum = $_GET["startnum"];
+	$startnum = $_POST["startnum"];
 };
 
 if(!isset($_GET['all'])){
@@ -164,23 +163,26 @@ while($row = mysql_fetch_row($result))
 </table>
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
-		<td align="center">
+		<td align="center" class="mainlist">
+			<form method="post" action="index.php">
+			PAGE:
+			<select name="startnum">
 			<?php
-			if(!isset($_GET['all'])){
 			if(!isset($page)){
 				$page = "1";
 			}
 			$pages = ceil($totalmovies[0] / $limit + 1);
 			while($page < $pages){
-			$nextnum = $page * $limit - 15;
-			if($startnum == $nextnum){
-			?>
-			<a class="thispage" href="?startnum=<?php echo $nextnum;?>"><?php echo $page;?></a>
-			<?php }ELSE{ ?>
-			<a class="pages" href="?startnum=<?php echo $nextnum;?>"><?php echo $page;?></a>
-			<?php ;}; ?>
-			<?php	$page++;}; ?>
-			<?php }; ?>
+			$nextpage = $page * $limit - $limit;
+			if($startnum == $nextpage){
+			echo "<option selected value=\"$nextpage\">$page</option>";
+			}else{
+			echo "<option value=\"$nextpage\">$page</option>";
+			};
+			$page++;}; ?>
+			</select>
+			<input type="submit" value="Go" name="submit">
+			</form>
 		</td>
 	</tr>
 	<?php if(isset($_GET['search'])){ ?>
