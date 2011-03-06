@@ -157,7 +157,7 @@ while($row = mysql_fetch_row($result))
 						<td class="desc" width="300">Writer: <?php echo $writer;?> </td>
 					</tr>
 					<tr>
-						<td class="desc" width="300">Play in: <a class="desc" href="movieinfo.php?movieid=<?php echo $movieid;?>&play&location=trav">Travis' Room</a> | <a class="desc" href="movieinfo.php?movieid=<?php echo $movieid;?>&play&location=lounge">Lounge Room</a> | <a class="desc" href="movieinfo.php?movieid=<?php echo $movieid;?>&play&location=chris">Chris' Room</a></td>
+						<td class="desc" width="300">Play in: <a class="desc" href="movieinfo.php?movieid=<?php echo $movieid;?>&play&location=lounge">Lounge Room</a></td>
 						<td class="desc" width="300">Links: <a class="desc" target="_blank" href="http://www.imdb.com/title/<?php echo $imdbid;?>">IMDB</a> | <a class="desc" href="Thumbnails/Video/Fanart/<?php echo $thumbhash;?>.tbn" onClick="popup = window.open('Thumbnails/Video/Fanart/<?php echo $thumbhash;?>.tbn', 'PopupPage', 'height=720, width=1280, scrollbars=yes, resizeable=no'); return false" target="_blank">Fanart</a></td>
 					</tr>
 
