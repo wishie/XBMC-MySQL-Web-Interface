@@ -1,1 +1,32 @@
-Watch this space!
+XBMC MySQL Web Interface
+------------------------
+
+This is a very simple web interface to display the movies in your XBMC library (from MySQL only).
+I will eventually extend this to also support TV Shows.
+
+The code is messy, not optimal, and may contain (many) bugs.
+
+I have written this purely for my own use, but thought someone else might benefit from it.
+
+The advantage to this interface, as opposed to the XBMC built-in Web Interface, is that XBMC doesnt have to be running to display your movies etc.
+
+Some features, like the "Play In" and "Stop Playback" features obviously need XBMC to be running, though.
+
+TODO (in order of priority):
+
+1. Use JSON instead of deprecated HTTP API for 'play/stop' function
+2. Tidy up the output (the HTML display)
+3. ???
+4. ???
+5. Tidy up the code.
+
+
+Installation Instructions:
+--------------------------
+
+1. Copy source folder to somewhere in your web server tree (example /var/www/ on Linux)
+2. Edit config.php and access.php to your liking.
+3. Create a symlink called 'Thumbnails' and point it at your XBMC thumbnails dir
+4. Visit http://<webserver-ip>/medialists/
+
+Please note, you CAN rename the dir from 'medialists' to whatever you want.
