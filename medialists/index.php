@@ -89,7 +89,7 @@ $result = mysql_query($query);
 		<td colspan="3">
 		Search: <form method="post" action="?all&search">
 		<input type="text" name="searchterm">
-		<input type="radio" name="st" value="titlesearch">Title Search</option>
+		<input type="radio" name="st" value="titlesearch" checked>Title Search</option>
 		<input type="radio" name="st" value="genresearch">Genre Search</option>
 		<input type="submit" name="submit" value="Go">
 		</form></td>
@@ -157,7 +157,7 @@ while($row = mysql_fetch_row($result))
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			<tr>
 				<td width="75">
-					<img width="75" src="Thumbnails/Video/<?php echo $thumbhash[0];?>/<?php echo $thumbhash;?>.tbn">
+					<a href="movieinfo.php?movieid=<?php echo $movieid;?>"><img border="0" width="75" src="Thumbnails/Video/<?php echo $thumbhash[0];?>/<?php echo $thumbhash;?>.tbn"></a>
 				</td>
 				<td width="10">&nbsp;</td>
 				<td class="mainlist" valign="top">
