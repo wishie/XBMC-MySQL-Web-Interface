@@ -53,21 +53,46 @@ if(!isset($_GET['all'])){
 	$query	= "SELECT * FROM movie";
 	if(isset($_GET['search'])){
 		$searchterm = $_POST['searchterm'];
-		$query .= " WHERE c00 LIKE '%$searchterm%'";
+		if($_POST['st'] == "titlesearch"){
+			$query .= " WHERE c00 LIKE '%$searchterm%'";
+		}
+		if($_POST['st'] == "genresearch"){
+			$query .= " WHERE c14 LIKE '%$searchterm%'";
+		}
 	}
 	$query .= " ORDER BY c00";
 }
-//$query  = "SELECT * FROM movie ORDER BY c00 LIMIT " . $_GET["startnum"] . ", $limit";
 $result = mysql_query($query);
 ?>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr class="mainlist">
-		<td colspan="3"><h1>Movie list <?php if($_POST['searchterm'] == ""){ unset($_POST['searchterm']);}; if(isset($_POST['searchterm'])){ ?> (Results containing the search term '<?php echo $_POST['searchterm'];?>') <?php ;}; ?></h1></td>
+		<td colspan="3">
+			<h1>Movie list
+			<?php
+			if($_POST['searchterm'] == ""){
+				unset($_POST['searchterm']);
+			}
+			if(isset($_POST['searchterm'])){ 
+				if($_POST['st'] == "titlesearch"){
+				echo "(Title Search: ".$_POST['searchterm']." )"; 
+				}
+				if($_POST['st'] == "genresearch"){
+				echo "(Genre Search: ".$_POST['searchterm']." )"; 
+				}
+			}
+			?>
+			</h1>
+		</td>
 	</tr>
 	<tr class="mainlist">
 		<td colspan="3">
-		Search: <form method="post" action="?all&search"><input type="text" name="searchterm"><input type="submit" name="submit" value="Go"></form></td>
+		Search: <form method="post" action="?all&search">
+		<input type="text" name="searchterm">
+		<input type="radio" name="st" value="titlesearch">Title Search</option>
+		<input type="radio" name="st" value="genresearch">Genre Search</option>
+		<input type="submit" name="submit" value="Go">
+		</form></td>
 	</tr>
 	<tr class="mainlist">
 <?php
@@ -187,6 +212,7 @@ while($row = mysql_fetch_row($result))
 			</select>
 			<input type="submit" value="Go" name="submit">
 			</form>
+			Displaying movies <?php echo $startnum + 1;?> to <?php echo $startnum + $limit;?> of <?php echo $totalmovies[0];?>
 			<?php }; ?>
 		</td>
 	</tr>
