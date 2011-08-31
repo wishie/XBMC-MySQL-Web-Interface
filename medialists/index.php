@@ -145,7 +145,7 @@ while($row = mysql_fetch_row($result))
     $fullpath   = trim($filepath.$filename);
     $finalfile  = $fullpath;
     $playfile   = urlencode($finalfile);
-    $thumbhash	= thumbnailHash($finalfile);
+    $thumbhash	= substr(thumbnailHash($finalfile), -8);
     $cellbg++;
     if($cellbg % 2 == 0){
 ?>
