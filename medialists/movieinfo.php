@@ -102,7 +102,7 @@ while($row = mysql_fetch_row($result))
     $fullpath   = trim($filepath.$filename);
     $finalfile  = $fullpath;
     $playfile	= urlencode($finalfile);
-    $thumbhash  = thumbnailHash("$finalfile");
+    $thumbhash  = substr(thumbnailHash("$finalfile"), -8);
 
     if(isset($_GET['play'])){
 	$fh = fopen('/dev/null', 'w');
