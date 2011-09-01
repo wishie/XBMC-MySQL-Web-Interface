@@ -1,11 +1,17 @@
-.mainlist {
+body {
+    font-size:9px;
+    font-family:verdana;
+    color:#333;
+}
+.mainlist
+{
     font-size:9px;
     font-family:verdana;
     color:#333;
     margin:10px 0;
 }
-a.nav:link {font-size: 9px; color: black; text-decoration: none; }
-a.nav:visited {font-size: 9px; color: black; text-decoration: none; }
+a.nav:link {font-size:9px; color: black; text-decoration: none; }
+a.nav:visited {font-size:9px; color: black; text-decoration: none; }
 a.nav:hover {color: red; text-decoration: underline; }
 a.nav:active {color: red; } 
 a.pages:link {font-size: 10px; color: black; text-decoration: none; }
