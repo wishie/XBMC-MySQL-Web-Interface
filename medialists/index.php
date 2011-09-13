@@ -212,10 +212,11 @@ while($row = $result->fetch_assoc())
                 <a href="movieinfo.php?movieid='.$row[movieid].'"><img border="0" style="max-width: 75px; max-height: 112px;" src="Thumbnails/Video/'.$thumbhash[0].'/'.$thumbhash.'.tbn"></a>
             </div>
             <div style="padding-left: 85px;">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table cellpadding="0" cellspacing="0" border="0" width="275" style="table-layout:fixed">
                     <tr>
                         <td width="200">
-                            <a class="nav" href="movieinfo.php?movieid='.$row[movieid].'">'.$title; if($row[year] != "0") { echo " (".$row[year].") "; }
+                            <a class="nav" href="movieinfo.php?movieid='.$row[movieid].'">'.$title; if($row[year] != "0") { echo " (".$row[year].") "; } echo '</a>
+                        </td>';
                         echo '<td width="75" class="mainlist">'.$runtimeh.' hr '.$runtimem.' mins</td>
                     </tr>
                     <tr height="70" valign="top">
